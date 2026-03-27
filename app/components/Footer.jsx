@@ -15,7 +15,7 @@ export default function Footer() {
             </p>
           </div>
           <div data-aos="fade-up" data-aos-delay="200">
-            <h3 className="text-lg font-extrabold mb-6 text-gray-900 flex items-center">
+            <h3 className="text-lg font-extrabold mb-6 text-black flex items-center">
               <span className="w-2 h-2 rounded-full bg-orange-500 mr-2"></span> Quick Links
             </h3>
             <ul className="space-y-3 text-gray-500 font-medium text-sm">
@@ -26,7 +26,7 @@ export default function Footer() {
             </ul>
           </div>
           <div data-aos="fade-up" data-aos-delay="300">
-            <h3 className="text-lg font-extrabold mb-6 text-gray-900 flex items-center">
+            <h3 className="text-lg font-extrabold mb-6 text-black flex items-center">
               <span className="w-2 h-2 rounded-full bg-orange-500 mr-2"></span> Coverage
             </h3>
             <ul className="space-y-3 text-gray-500 font-medium text-sm grid grid-cols-2 gap-x-2">
@@ -37,13 +37,13 @@ export default function Footer() {
             </ul>
           </div>
           <div data-aos="fade-up" data-aos-delay="400">
-            <h3 className="text-lg font-extrabold mb-6 text-gray-900 flex items-center">
+            <h3 className="text-lg font-extrabold mb-6 text-black flex items-center">
               <span className="w-2 h-2 rounded-full bg-orange-500 mr-2"></span> Connect With Us
             </h3>
             <div className="flex space-x-3">
-              <a href="#" className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-facebook-f"></i></a>
-              <a href="#" className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-tiktok"></i></a>
-              <a href="#" className="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-whatsapp"></i></a>
+              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-facebook-f"></i></a>
+              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-tiktok"></i></a>
+              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-whatsapp"></i></a>
             </div>
           </div>
         </div>
@@ -59,3 +59,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+

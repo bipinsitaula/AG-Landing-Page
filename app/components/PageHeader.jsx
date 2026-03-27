@@ -1,4 +1,6 @@
-export default function PageHeader({ title, subtitle, gradient = 'from-orange-500 to-orange-400', dotPattern = false, children }) {
+'use client';
+
+export default function PageHeader({ title, subtitle, gradient = 'from-orange-600 to-orange-500', dotPattern = false, children }) {
   return (
     <div className={`bg-gradient-to-r ${gradient} text-white py-24 relative overflow-hidden`}>
       {dotPattern && (
@@ -9,8 +11,8 @@ export default function PageHeader({ title, subtitle, gradient = 'from-orange-50
       )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         {children}
-        {title && <h1 className="text-5xl font-extrabold mb-4" data-aos="zoom-in">{title}</h1>}
-        {subtitle && <p className="text-orange-100 text-xl max-w-2xl mx-auto" data-aos="fade-up">{subtitle}</p>}
+        {title && <h1 className="text-5xl font-extrabold mb-4" data-aos="zoom-in" suppressHydrationWarning>{title}</h1>}
+        {subtitle && <p className="text-orange-100 text-xl max-w-2xl mx-auto" data-aos="fade-up" suppressHydrationWarning>{subtitle}</p>}
       </div>
     </div>
   );

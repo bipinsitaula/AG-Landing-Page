@@ -19,7 +19,7 @@ export default function Navbar({ onRequestQuote }) {
   const pathname = usePathname();
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-40 border-b border-orange-100">
+    <nav className="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-200">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
@@ -41,7 +41,7 @@ export default function Navbar({ onRequestQuote }) {
             ))}
             <button
               onClick={onRequestQuote}
-              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full text-sm font-bold transition shadow-lg shadow-orange-500/30 hover:-translate-y-0.5 ml-2 whitespace-nowrap"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full text-sm font-bold transition shadow-lg shadow-orange-500/30 hover:-trangray-y-0.5 ml-2 whitespace-nowrap"
             >
               Request Quote
             </button>
@@ -58,14 +58,14 @@ export default function Navbar({ onRequestQuote }) {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="xl:hidden bg-white border-t border-orange-100 absolute w-full shadow-xl z-50">
+        <div className="xl:hidden bg-white border-t border-gray-200 absolute w-full shadow-xl z-50">
           <div className="px-4 pt-2 pb-6 space-y-1 flex flex-col text-center max-h-screen overflow-y-auto">
             {navLinks.map(({ href, label }) => (
               <Link
                 key={href}
                 href={href}
                 onClick={() => setMobileOpen(false)}
-                className={`block px-3 py-3 font-semibold rounded-lg transition ${pathname === href ? 'text-orange-500 bg-orange-50' : 'text-gray-600 hover:text-orange-500 hover:bg-orange-50'}`}
+                className={`block px-3 py-3 font-semibold rounded-lg transition ${pathname === href ? 'text-orange-500 bg-white' : 'text-gray-600 hover:text-orange-500 hover:bg-white'}`}
               >
                 {label}
               </Link>
@@ -82,3 +82,5 @@ export default function Navbar({ onRequestQuote }) {
     </nav>
   );
 }
+
+

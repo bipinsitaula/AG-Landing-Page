@@ -78,31 +78,33 @@ export default function HomePage() {
             <div className="inline-block bg-white text-orange-500 font-bold px-4 py-1.5 rounded-full text-sm mb-6 border border-orange-200 shadow-sm">
               <i className="fa-solid fa-bolt mr-2"></i> Fast &amp; Secure Logistics
             </div>
-            <h1 className="text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] mb-6">
+            <h1 className="text-5xl lg:text-6xl font-extrabold text-black leading-[1.1] mb-6">
               Deliver your <br />packages <span className="text-orange-500">worldwide.</span>
             </h1>
             <p className="text-lg text-gray-600 mb-10 max-w-xl mx-auto lg:mx-0">
               AG EXPRESS is your trusted partner offering fast, door-to-door courier solutions to every corner of the world.
             </p>
-            <div className="bg-white p-2 rounded-full shadow-xl shadow-orange-500/10 flex flex-col sm:flex-row gap-2 border border-orange-100 max-w-lg mx-auto lg:mx-0">
+            <form 
+              onSubmit={(e) => { e.preventDefault(); handleTrack(); }}
+              className="bg-white p-2 rounded-full shadow-xl shadow-orange-500/10 flex flex-col sm:flex-row gap-2 border border-gray-200 max-w-lg mx-auto lg:mx-0"
+            >
               <div className="flex-grow flex items-center pl-4">
                 <i className="fa-solid fa-box-open text-orange-400 mr-3 text-xl"></i>
                 <input
                   type="text"
                   value={trackingInput}
                   onChange={e => setTrackingInput(e.target.value)}
-                  onKeyDown={e => e.key === 'Enter' && handleTrack()}
                   placeholder="Enter Invoice No. (eg: AG123456789)"
                   className="w-full bg-transparent focus:outline-none text-gray-700 py-3 font-medium placeholder-gray-400"
                 />
               </div>
-              <button
-                onClick={handleTrack}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition w-full sm:w-auto flex-shrink-0 shadow-md"
+              <Link
+                href={trackingInput.trim() ? `/tracking?id=${encodeURIComponent(trackingInput.trim().toUpperCase())}` : '/tracking'}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-full font-bold transition w-full sm:w-auto flex-shrink-0 shadow-md flex items-center justify-center"
               >
                 Track <i className="fa-solid fa-arrow-right ml-2"></i>
-              </button>
-            </div>
+              </Link>
+            </form>
           </div>
           <div className="w-full lg:w-1/2 relative animate-float" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="200">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -111,12 +113,12 @@ export default function HomePage() {
               alt="Cargo Logistics Delivery"
               className="rounded-3xl shadow-2xl border-4 border-white object-cover h-[450px] w-full"
             />
-            <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-orange-100 flex items-center gap-4">
-              <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xl">
+            <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-gray-200 flex items-center gap-4">
+              <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-orange-500 text-xl">
                 <i className="fa-solid fa-earth-americas"></i>
               </div>
               <div>
-                <p className="text-2xl font-black text-gray-900">150+</p>
+                <p className="text-2xl font-black text-black">150+</p>
                 <p className="text-sm font-bold text-gray-500">Countries Served</p>
               </div>
             </div>
@@ -128,7 +130,7 @@ export default function HomePage() {
       <section className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Why Choose <span className="text-orange-500">AG Express?</span></h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black">Why Choose <span className="text-orange-500">AG Express?</span></h2>
             <div className="w-20 h-1.5 bg-orange-500 mx-auto mt-6 rounded-full"></div>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -137,11 +139,11 @@ export default function HomePage() {
               { icon:'fa-shield-halved', title:'Safe Delivery', desc:'We deliver your package with utmost care and provide comprehensive insurance options for absolute peace of mind.', delay:200 },
               { icon:'fa-headset', title:'24/7 Support', desc:'With real-time tracking and dedicated customer support, we ensure a hassle-free shipping experience.', delay:300 },
             ].map(f => (
-              <div key={f.title} className="bg-white border border-orange-50 rounded-3xl p-8 shadow-lg shadow-orange-100 hover:-translate-y-2 hover:shadow-orange-200 transition duration-300 group" data-aos="fade-up" data-aos-delay={f.delay}>
-                <div className="w-16 h-16 bg-orange-50 text-orange-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
+              <div key={f.title} className="bg-white border border-gray-100 rounded-3xl p-8 shadow-lg shadow-orange-100 hover:-trangray-y-2 hover:shadow-orange-200 transition duration-300 group" data-aos="fade-up" data-aos-delay={f.delay}>
+                <div className="w-16 h-16 bg-white text-orange-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
                   <i className={`fa-solid ${f.icon}`}></i>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{f.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-black">{f.title}</h3>
                 <p className="text-gray-600 leading-relaxed text-sm">{f.desc}</p>
               </div>
             ))}
@@ -150,11 +152,11 @@ export default function HomePage() {
       </section>
 
       {/* Core Services */}
-      <section className="py-24 bg-orange-50">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 w-full space-y-4" data-aos="fade-right">
-              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6">Our Core Services</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-black mb-6">Our Core Services</h2>
               <p className="text-gray-600 mb-8 text-lg border-l-4 border-orange-500 pl-4 bg-white p-4 rounded-r-xl shadow-sm">
                 Express delivery across the globe and your country through our vast network of branches. Select a service to learn more.
               </p>
@@ -167,10 +169,10 @@ export default function HomePage() {
                       onClick={() => changeService(s.key)}
                       className={`w-full flex items-center gap-4 p-4 bg-white rounded-xl cursor-pointer transition text-left ${active ? 'shadow-md border-2 border-orange-500 scale-[1.02]' : 'border border-transparent hover:border-orange-200 hover:shadow-md'}`}
                     >
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${active ? 'bg-orange-500 text-white' : 'bg-orange-50 text-orange-400'}`}>
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${active ? 'bg-orange-500 text-white' : 'bg-white text-orange-400'}`}>
                         <i className={`fa-solid ${s.icon}`}></i>
                       </div>
-                      <span className={`text-lg flex-grow ${active ? 'font-bold text-gray-900' : 'font-semibold text-gray-700'}`}>{s.label}</span>
+                      <span className={`text-lg flex-grow ${active ? 'font-bold text-black' : 'font-semibold text-gray-700'}`}>{s.label}</span>
                       {active && <i className="fa-solid fa-arrow-right text-orange-500"></i>}
                     </button>
                   );
@@ -178,7 +180,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="lg:w-1/2 w-full relative" data-aos="fade-left">
-              <div className="absolute inset-0 bg-orange-500 rounded-3xl transform translate-x-4 translate-y-4"></div>
+              <div className="absolute inset-0 bg-orange-500 rounded-3xl transform trangray-x-4 trangray-y-4"></div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={serviceImg}
@@ -194,9 +196,9 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900" data-aos="fade-down">Satisfied <span className="text-orange-500">Clients</span></h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-black" data-aos="fade-down">Satisfied <span className="text-orange-500">Clients</span></h2>
           <div className="w-20 h-1.5 bg-orange-500 mx-auto mt-6 mb-12 rounded-full" data-aos="fade-down"></div>
-          <div className="relative bg-white p-8 md:p-14 rounded-[2.5rem] shadow-2xl shadow-orange-500/10 border border-orange-100 min-h-[360px] flex flex-col justify-between overflow-hidden text-left group" data-aos="zoom-in">
+          <div className="relative bg-white p-8 md:p-14 rounded-[2.5rem] shadow-2xl shadow-orange-500/10 border border-gray-200 min-h-[360px] flex flex-col justify-between overflow-hidden text-left group" data-aos="zoom-in">
             <div className="absolute top-0 right-0 w-48 h-48 bg-orange-500/5 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
             <i className="fa-solid fa-quote-right text-8xl md:text-9xl text-orange-50 absolute -bottom-6 -right-6 z-0 rotate-12 group-hover:rotate-0 transition-transform duration-500 ease-out"></i>
             <div className={`transition-opacity duration-300 relative z-10 flex flex-col h-full justify-between ${testimonialOpacity ? 'opacity-100' : 'opacity-0'}`}>
@@ -204,7 +206,7 @@ export default function HomePage() {
                 <div className="flex gap-1 text-orange-400 text-sm md:text-base mb-6">
                   {[...Array(5)].map((_, i) => <i key={i} className="fa-solid fa-star"></i>)}
                 </div>
-                <p className="text-2xl md:text-3xl lg:text-4xl text-gray-900 font-bold leading-snug tracking-tight mb-8">
+                <p className="text-2xl md:text-3xl lg:text-4xl text-black font-bold leading-snug tracking-tight mb-8">
                   &ldquo;{t.quote}&rdquo;
                 </p>
               </div>
@@ -213,7 +215,7 @@ export default function HomePage() {
                   {t.init}
                 </div>
                 <div>
-                  <h4 className="font-extrabold text-gray-900 text-lg md:text-xl">{t.name}</h4>
+                  <h4 className="font-extrabold text-black text-lg md:text-xl">{t.name}</h4>
                   <p className="text-sm text-orange-500 font-bold uppercase tracking-wider mt-0.5">{t.role}</p>
                 </div>
               </div>
@@ -226,7 +228,7 @@ export default function HomePage() {
                 <button
                   key={i}
                   onClick={() => selectTestimonial(i)}
-                  className={`relative w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center font-extrabold text-lg cursor-pointer transition-all duration-300 border-2 focus:outline-none focus:ring-4 focus:ring-orange-100 ${i === activeTestimonial ? 'bg-orange-500 text-white border-orange-500 shadow-xl shadow-orange-500/40 scale-110 -translate-y-2' : 'bg-white text-gray-400 border-gray-100 hover:border-orange-300 hover:text-orange-500 hover:-translate-y-1 hover:shadow-md'}`}
+                  className={`relative w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center font-extrabold text-lg cursor-pointer transition-all duration-300 border-2 focus:outline-none focus:ring-4 focus:ring-orange-100 ${i === activeTestimonial ? 'bg-orange-500 text-white border-orange-500 shadow-xl shadow-orange-500/40 scale-110 -trangray-y-2' : 'bg-white text-gray-400 border-gray-100 hover:border-orange-300 hover:text-orange-500 hover:-trangray-y-1 hover:shadow-md'}`}
                 >
                   {t.init}
                   <span className={`absolute -bottom-3 w-1.5 h-1.5 rounded-full transition-colors ${i === activeTestimonial ? 'bg-orange-500' : 'bg-transparent'}`}></span>
@@ -246,7 +248,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
             <button
               onClick={() => setModal('quote')}
-              className="bg-white text-orange-500 hover:bg-gray-50 px-8 py-4 rounded-full text-lg font-bold transition shadow-2xl hover:scale-105 w-full sm:w-auto"
+              className="bg-white text-orange-500 hover:bg-white px-8 py-4 rounded-full text-lg font-bold transition shadow-2xl hover:scale-105 w-full sm:w-auto"
             >
               Get a Free Quote
             </button>
@@ -267,13 +269,13 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16" data-aos="fade-up">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">Frequently Asked <span className="text-orange-500">Questions</span></h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-black">Frequently Asked <span className="text-orange-500">Questions</span></h2>
             <div className="w-20 h-1.5 bg-orange-500 mx-auto mt-6 rounded-full"></div>
           </div>
           <div className="space-y-4" data-aos="fade-up" data-aos-delay="100">
             {faqs.map(f => (
-              <details key={f.q} className="group bg-orange-50 rounded-2xl border border-orange-100 open:shadow-md transition-all">
-                <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900 hover:text-orange-500 list-none">
+              <details key={f.q} className="group bg-white rounded-2xl border border-gray-200 open:shadow-md transition-all">
+                <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-black hover:text-orange-500 list-none">
                   <span className="text-lg">{f.q}</span>
                   <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-orange-500 group-open:rotate-180 transition-transform shadow-sm flex-shrink-0">
                     <i className="fa-solid fa-chevron-down"></i>
@@ -300,18 +302,18 @@ export default function HomePage() {
           >
             <button
               onClick={() => setModal(null)}
-              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-orange-100 hover:text-orange-500 transition"
+              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 hover:bg-gray-100 hover:text-orange-500 transition"
             >
               <i className="fa-solid fa-xmark"></i>
             </button>
             <div className="text-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-500 text-3xl"><i className="fa-solid fa-file-invoice-dollar"></i></div>
-              <h3 className="text-2xl font-black text-gray-900 mb-2">Request a Quote</h3>
+              <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-500 text-3xl"><i className="fa-solid fa-file-invoice-dollar"></i></div>
+              <h3 className="text-2xl font-black text-black mb-2">Request a Quote</h3>
               <p className="text-gray-500 mb-6 font-medium text-sm">Fill in your basic details and our team will get back to you immediately.</p>
               <form className="space-y-3 text-left mb-6">
-                <input type="text" placeholder="Your Name" className="w-full bg-gray-50 border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
-                <input type="email" placeholder="Email Address" className="w-full bg-gray-50 border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
-                <textarea placeholder="Tell us about your shipment..." rows={3} className="w-full bg-gray-50 border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition resize-none"></textarea>
+                <input type="text" placeholder="Your Name" className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
+                <input type="email" placeholder="Email Address" className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
+                <textarea placeholder="Tell us about your shipment..." rows={3} className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition resize-none"></textarea>
               </form>
               <button onClick={() => setModal(null)} className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-full transition shadow-lg shadow-orange-500/30">Submit Request</button>
             </div>
@@ -321,3 +323,5 @@ export default function HomePage() {
     </>
   );
 }
+
+
