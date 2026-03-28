@@ -41,8 +41,8 @@ export default function Footer() {
               <span className="w-2 h-2 rounded-full bg-orange-500 mr-2"></span> Connect With Us
             </h3>
             <div className="flex space-x-3">
-              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-facebook-f"></i></a>
-              <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-tiktok"></i></a>
+              <a href="https://www.facebook.com/agexpresshk" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.tiktok.com/@ag_express01" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-tiktok"></i></a>
               <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-orange-500 hover:bg-orange-500 hover:text-white transition"><i className="fa-brands fa-whatsapp"></i></a>
             </div>
           </div>

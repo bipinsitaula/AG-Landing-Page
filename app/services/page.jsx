@@ -7,8 +7,9 @@ export const metadata = { title: 'Services | AG Express' };
 const services = [
   { icon: 'fa-box', title: 'Express Pickup & Delivery', desc: 'Fast and reliable express delivery across the globe. Carefully picked up and shipped safely.', delay: 0 },
   { icon: 'fa-door-open', title: 'Door to Door Delivery', desc: 'End-to-end service from your doorstep directly to your destination.', delay: 100 },
-  { icon: 'fa-file-signature', title: 'Customs Clearance', desc: 'Swift handling of tedious customs regulations ensuring your goods cross borders smoothly.', delay: 200 },
-  { icon: 'fa-ship', title: 'Container Booking / LCL', desc: 'Cost-effective shipping for bulk items via sea or ocean freight.', delay: 300 },
+  { icon: 'fa-right-left', title: 'Import & Export', desc: 'Comprehensive import and export solutions to streamline your international trade and global logistics.', delay: 200 },
+  { icon: 'fa-file-signature', title: 'Customs Clearance', desc: 'Swift handling of tedious customs regulations ensuring your goods cross borders smoothly.', delay: 300 },
+  { icon: 'fa-ship', title: 'Container Booking / LCL', desc: 'Cost-effective shipping for bulk items via sea or ocean freight.', delay: 400 },
 ];
 
 export default function ServicesPage() {

@@ -7,10 +7,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 const serviceImages = {
-  pickup:    'https://images.pexels.com/photos/4308801/pexels-photo-4308801.jpeg?auto=compress&cs=tinysrgb&w=800',
-  door:      'https://images.pexels.com/photos/4599719/pexels-photo-4599719.jpeg?auto=compress&cs=tinysrgb&w=800',
-  customs:   'https://images.pexels.com/photos/6169033/pexels-photo-6169033.jpeg?auto=compress&cs=tinysrgb&w=800',
-  container: 'https://images.pexels.com/photos/10360699/pexels-photo-10360699.jpeg?auto=compress&cs=tinysrgb&w=800',
+  pickup: '/ExpressPickupandDelivery.png',
+  door: '/DoorToDoorDelivery.png',
+  importExport: '/ImportExport.png',
+  customs: '/CustomsClearance.png',
+  container: '/ContainerBooking.png',
 };
 
 const testimonials = [
@@ -40,6 +41,7 @@ export default function HomePage() {
   const serviceItems = [
     { key: 'pickup', icon: 'fa-box', label: 'Express Pickup & Delivery' },
     { key: 'door', icon: 'fa-door-open', label: 'Door to Door Delivery' },
+    { key: 'importExport', icon: 'fa-right-left', label: 'Import & Export' },
     { key: 'customs', icon: 'fa-file-signature', label: 'Customs Clearance' },
     { key: 'container', icon: 'fa-ship', label: 'Container Booking / LCL' },
   ];
@@ -84,7 +86,7 @@ export default function HomePage() {
             <p className="text-lg text-gray-600 mb-10 max-w-xl mx-auto lg:mx-0">
               AG EXPRESS is your trusted partner offering fast, door-to-door courier solutions to every corner of the world.
             </p>
-            <form 
+            <form
               onSubmit={(e) => { e.preventDefault(); handleTrack(); }}
               className="bg-white p-2 rounded-full shadow-xl shadow-orange-500/10 flex flex-col sm:flex-row gap-2 border border-gray-200 max-w-lg mx-auto lg:mx-0"
             >
@@ -135,9 +137,9 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { icon:'fa-truck-fast', title:'Express Shipment', desc:'Timely shipped, picked up, and carefully handed to your dear ones with our reliable worldwide partners.', delay:100 },
-              { icon:'fa-shield-halved', title:'Safe Delivery', desc:'We deliver your package with utmost care and provide comprehensive insurance options for absolute peace of mind.', delay:200 },
-              { icon:'fa-headset', title:'24/7 Support', desc:'With real-time tracking and dedicated customer support, we ensure a hassle-free shipping experience.', delay:300 },
+              { icon: 'fa-truck-fast', title: 'Express Shipment', desc: 'Timely shipped, picked up, and carefully handed to your dear ones with our reliable worldwide partners.', delay: 100 },
+              { icon: 'fa-shield-halved', title: 'Safe Delivery', desc: 'We deliver your package with utmost care and provide comprehensive insurance options for absolute peace of mind.', delay: 200 },
+              { icon: 'fa-headset', title: '24/7 Support', desc: 'With real-time tracking and dedicated customer support, we ensure a hassle-free shipping experience.', delay: 300 },
             ].map(f => (
               <div key={f.title} className="bg-white border border-gray-100 rounded-3xl p-8 shadow-lg shadow-orange-100 hover:-trangray-y-2 hover:shadow-orange-200 transition duration-300 group" data-aos="fade-up" data-aos-delay={f.delay}>
                 <div className="w-16 h-16 bg-white text-orange-500 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">

@@ -30,7 +30,8 @@ export default function OffersPage() {
     try {
       setLoading(true);
       const res = await APIGetALlActiveOffers(page, limit);
-      setOffers(res?.data?.data || res?.data || []);
+      const data = res?.data?.data || res?.data;
+      setOffers(Array.isArray(data) ? data : []);
       setTotalOffers(res?.data?.total || res?.total || 0);
     } catch (err) {
       console.error("Failed to fetch offers:", err);
@@ -89,9 +90,9 @@ export default function OffersPage() {
               </div>
               <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">Loading offers...</p>
             </div>
-          ) : offers.length === 0 ? (
+          ) : (!offers || offers.length === 0) ? (
             /* Empty State */
-            <div className="text-center py-32 bg-white rounded-[3rem] shadow-sm border border-gray-100 mb-20 px-8" data-aos="fade-up">
+            <div className="text-center py-32 bg-white rounded-[3rem] shadow-sm border border-gray-100 mb-20 px-8 opacity-100 transition-opacity duration-500">
               <div className="text-orange-100 text-8xl mb-8">
                 <i className="fa-solid fa-tags" />
               </div>
