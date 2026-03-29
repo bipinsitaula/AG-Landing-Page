@@ -36,7 +36,17 @@ export default function HomePage() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [testimonialOpacity, setTestimonialOpacity] = useState(true);
   const [modal, setModal] = useState(null); // 'quote' | null
+  const [quoteData, setQuoteData] = useState({ name: '', email: '', contact: '', details: '' });
   const router = useRouter();
+
+  const handleQuoteSubmit = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`New Quote Request from ${quoteData.name}`);
+    const body = encodeURIComponent(`Name: ${quoteData.name}\nEmail: ${quoteData.email}\nContact Number: ${quoteData.contact}\n\nShipment Details:\n${quoteData.details}`);
+    window.location.href = `mailto:info@ag.express?subject=${subject}&body=${body}`;
+    setModal(null);
+    setQuoteData({ name: '', email: '', contact: '', details: '' });
+  };
 
   const serviceItems = [
     { key: 'pickup', icon: 'fa-box', label: 'Express Pickup & Delivery' },
@@ -312,12 +322,13 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-500 text-3xl"><i className="fa-solid fa-file-invoice-dollar"></i></div>
               <h3 className="text-2xl font-black text-black mb-2">Request a Quote</h3>
               <p className="text-gray-500 mb-6 font-medium text-sm">Fill in your basic details and our team will get back to you immediately.</p>
-              <form className="space-y-3 text-left mb-6">
-                <input type="text" placeholder="Your Name" className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
-                <input type="email" placeholder="Email Address" className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
-                <textarea placeholder="Tell us about your shipment..." rows={3} className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition resize-none"></textarea>
+              <form onSubmit={handleQuoteSubmit} className="space-y-3 text-left mb-6">
+                <input required type="text" placeholder="Your Name" value={quoteData.name} onChange={(e) => setQuoteData({...quoteData, name: e.target.value})} className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
+                <input required type="email" placeholder="Email Address" value={quoteData.email} onChange={(e) => setQuoteData({...quoteData, email: e.target.value})} className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
+                <input required type="tel" placeholder="Contact Number" value={quoteData.contact} onChange={(e) => setQuoteData({...quoteData, contact: e.target.value})} className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition" />
+                <textarea required placeholder="Tell us about your shipment..." rows={3} value={quoteData.details} onChange={(e) => setQuoteData({...quoteData, details: e.target.value})} className="w-full bg-white border border-gray-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none rounded-xl px-4 py-3 text-sm font-medium transition resize-none"></textarea>
+                <button type="submit" className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-full transition shadow-lg shadow-orange-500/30 mt-4">Submit Request</button>
               </form>
-              <button onClick={() => setModal(null)} className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-full transition shadow-lg shadow-orange-500/30">Submit Request</button>
             </div>
           </div>
         </div>

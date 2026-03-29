@@ -2,14 +2,14 @@
 import { useState } from 'react';
 
 const branchDetails = {
-  Tinkune:   { address: 'Tinkune, Kathmandu, Nepal', phone: '+977-XXXXXXXXXX' },
-  Satdobato: { address: 'Satdobato, Lalitpur, Nepal', phone: '+977-XXXXXXXXXX' },
-  Dharan:    { address: 'Dharan, Sunsari, Nepal', phone: '+977-XXXXXXXXXX' },
-  Itahari:   { address: 'Itahari, Sunsari, Nepal', phone: '+977-XXXXXXXXXX' },
-  Butwal:    { address: 'Butwal, Rupandehi, Nepal', phone: '+977-XXXXXXXXXX' },
-  Chitwan:   { address: 'Narayangarh, Chitwan, Nepal', phone: '+977-XXXXXXXXXX' },
-  Birtamode: { address: 'Birtamode, Jhapa, Nepal', phone: '+977-XXXXXXXXXX' },
-  Hetauda:   { address: 'Hetauda, Makwanpur, Nepal', phone: '+977-XXXXXXXXXX' },
+  Tinkune:   { address: 'Tinkune, Kathmandu, Nepal', phone: '+977-9766387636', email: 'tinkunebranch@ag.express' },
+  Satdobato: { address: 'Satdobato, Lalitpur, Nepal', phone: '+977-9705675243', email: 'satdobatobranch@ag.express' },
+  Dharan:    { address: 'Dharan, Sunsari, Nepal', phone: '+977-9820758382', email: 'dharanbranch@ag.express' },
+  Itahari:   { address: 'Itahari, Sunsari, Nepal', phone: '+977-9842183730', email: 'itaharibranch@ag.express' },
+  Butwal:    { address: 'Butwal, Rupandehi, Nepal', phone: '+977-9700298108', email: 'butwalbranch@ag.express' },
+  Chitwan:   { address: 'Narayangarh, Chitwan, Nepal', phone: '+977-9764396012', email: 'chitwanbranch@ag.express' },
+  Birtamode: { address: 'Birtamode, Jhapa, Nepal', phone: '+977-9852625960', email: 'birtamodebranch@ag.express' },
+  Hetauda:   { address: 'Hetauda, Makwanpur, Nepal', phone: '+977-9823024644', email: 'hetaudabranch@ag.express' },
 };
 
 export default function BranchModal({ branches }) {
@@ -50,7 +50,7 @@ export default function BranchModal({ branches }) {
               </p>
               <p className="flex items-center">
                 <i className="fa-solid fa-envelope w-6 text-orange-500"></i>
-                <span className="font-medium">info@ag.express</span>
+                <span className="font-medium">{branchDetails[selected]?.email}</span>
               </p>
             </div>
             <div className="mt-8">

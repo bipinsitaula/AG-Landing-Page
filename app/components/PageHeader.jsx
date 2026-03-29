@@ -1,6 +1,6 @@
 'use client';
 
-export default function PageHeader({ title, subtitle, gradient = 'from-orange-600 to-orange-500', dotPattern = false, children }) {
+export default function PageHeader({ title, subtitle, gradient = 'from-orange-700 to-orange-400', dotPattern = false, children }) {
   return (
     <div className={`bg-gradient-to-r ${gradient} text-white py-24 relative overflow-hidden`}>
       {dotPattern && (

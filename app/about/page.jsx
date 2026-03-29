@@ -77,13 +77,13 @@ export default function AboutPage() {
 
                       {/* Country Tags */}
                       <div className="flex flex-wrap gap-2 mb-5">
-                        {['Nepal', 'Malaysia', 'UK', 'Japan', 'United States'].map(c => (
+                        {['Nepal','Hong Kong','Dubai', 'Singapore', 'Malaysia', 'UK', 'Japan', 'United States'].map(c => (
                           <span key={c} className="bg-white border border-orange-100 text-gray-700 px-4 py-1.5 rounded-lg text-sm font-medium shadow-sm">
                             {c}
                           </span>
                         ))}
                         <span className="bg-orange-50 border border-orange-200 text-orange-700 px-4 py-1.5 rounded-lg text-sm font-bold shadow-sm">
-                          And more <i className="fa-solid fa-arrow-right text-xs ml-1"></i>
+                          And more
                         </span>
                       </div>
 
